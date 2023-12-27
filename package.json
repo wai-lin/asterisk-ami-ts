@@ -1,0 +1,42 @@
+{
+	"name": "asterisk-ami-ts",
+	"version": "0.1.0",
+	"description": "Typescript conversion of asterisk-ami library.",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"module": "dist/index.mjs",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"gen:bundle": "tsup lib/index.ts --sourcemap --format esm,cjs",
+		"gen:types": "tsc --emitDeclarationOnly --declaration",
+		"build": "npm run gen:bundle && npm run gen:types"
+	},
+	"keywords": [
+		"asterisk",
+		"ami",
+		"asterisk-ami"
+	],
+	"author": "wai-lin",
+	"license": "MIT",
+	"prettier": {
+		"endOfLine": "lf",
+		"trailingComma": "all",
+		"useTabs": true,
+		"quoteProps": "consistent",
+		"singleQuote": true,
+		"semi": false,
+		"plugins": [
+			"prettier-plugin-organize-imports"
+		]
+	},
+	"devDependencies": {
+		"@types/node": "^20.10.5",
+		"prettier": "^3.1.1",
+		"prettier-plugin-organize-imports": "^3.2.4",
+		"tsup": "^8.0.1",
+		"typescript": "^5.3.3",
+		"vitest": "^1.1.0"
+	}
+}

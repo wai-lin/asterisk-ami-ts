@@ -1,0 +1,5 @@
+node_modules
+test/config.js
+test/ami_logs
+ami_logs
+dist
