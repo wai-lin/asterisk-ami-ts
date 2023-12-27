@@ -111,3 +111,9 @@ export namespace Asterisk {
 	}
 }
 ```
+
+---
+
+### License
+
+`asterisk-ami-ts` is licensed under the MIT license.
