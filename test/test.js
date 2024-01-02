@@ -3,14 +3,12 @@ const fs = require('node:fs')
 const config = require('./config')
 
 const ami = new AsteriskAmi(config)
+const LF = '\n=================================\n'
 
 ami.on('ami_data', (data) => {
 	const logStream = fs.createWriteStream('./ami_logs', { flags: 'a' })
-
-	const logData =
-		JSON.stringify(data, null, 2) + '\n=================================\n'
-
-	logStream.write(logData, () => console.log('Stream'))
+	const logData = new Date() + '\n' + JSON.stringify(data, null, 2) + LF
+	logStream.write(logData, () => console.log('Stream : ' + new Date()))
 })
 
 ami.on('ami_socket_error', (error) => {
